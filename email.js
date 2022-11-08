@@ -30,7 +30,7 @@ const sendMail=(email,subject,text,id,cb)=>{
                         <div style="text-align: center;">----------------------------------------- </div>
                     
                         <p style="text-align: center;">your are welcome click on reset to change password </p>
-                        <div style="text-align: center;"><a href=https://glacier-file.herokuapp.com/resetPassword/${id}> RESET</a> </div>
+                        <div style="text-align: center;"><a href=https://glacier.onrender.com/resetPassword/${id}> RESET</a> </div>
                     </div>
                     `
     }

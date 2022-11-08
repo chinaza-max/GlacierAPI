@@ -53,7 +53,7 @@ router.get("/auth/google/callback",(req, res, next)=>{
             user.isAuthenticated=true;
             //return res.redirect(301,`http://localhost:3000/home/${user._id}`)
 
-            return res.redirect(301,`https://glacier-file.herokuapp.com/home/${user._id}`)
+            return res.redirect(301,`https://glacier.onrender.com/home/${user._id}`)
         
     })(req, res, next)
 })
