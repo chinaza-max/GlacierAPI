@@ -13,7 +13,12 @@ const path = require('path');
 const port=process.env.PORT||5000;
 // in latest body-parser use like below.
 app.use(fileUpload());
-app.use(cors())
+
+
+let corsOptions = {
+  origin: [ 'https://glacier.onrender.com', 'http://localhost:3000' ]
+};
+app.use(cors(corsOptions))
 /*
 const mongoConnection=require('mongoose')
 const connection=mongoConnection.connection;
