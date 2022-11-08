@@ -14,11 +14,7 @@ const port=process.env.PORT||5000;
 // in latest body-parser use like below.
 app.use(fileUpload());
 
-
-let corsOptions = {
-  origin: [ 'https://glacier.onrender.com', 'http://localhost:3000' ]
-};
-app.use(cors(corsOptions))
+app.use()
 /*
 const mongoConnection=require('mongoose')
 const connection=mongoConnection.connection;
@@ -44,6 +40,15 @@ app.use(session({
     saveUninitialized:false
 }))
 
+
+app.use('/', function (req, res, next) {
+  res.setHeader("Access-Control-Allow-Origin",[ 'https://glacier.onrender.com', 'http://localhost:3000' ])
+    res.setHeader("Access-Control-Allow-Credentials", "false");
+    res.setHeader("Access-Control-Max-Age", "1800");
+    res.setHeader("Access-Control-Allow-Headers", "content-type");
+    res.setHeader( "Access-Control-Allow-Methods", ", POST, GET" )
+  next();
+})
 /* this set of code has to be blow this "app.use(flash())"  "app.use(session({})"*/
 app.use(passportContol.initialize());
 app.use(passportContol.session());
