@@ -40,7 +40,7 @@ app.use(session({
     saveUninitialized:false
 }))
 app.use('/', function (req, res, next) {
-  res.setHeader("Access-Control-Allow-Origin","https://glacier-339401.web.app/")
+  res.setHeader("Access-Control-Allow-Origin","https://glacier-339401.web.app")
     res.setHeader("Access-Control-Allow-Credentials", "false");
     res.setHeader("Access-Control-Max-Age", "1800");
     res.setHeader("Access-Control-Allow-Headers", "content-type");
