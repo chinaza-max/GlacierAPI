@@ -53,7 +53,9 @@ router.get("/auth/google/callback",(req, res, next)=>{
             user.isAuthenticated=true;
             //return res.redirect(301,`http://localhost:3000/home/${user._id}`)
 
-            return res.redirect(301,` https://glacier-339401.web.app/home/${user._id}`)
+            //return res.redirect(301,`https://glacier-339401.web.app/home/${user._id}`)
+
+            res.redirect(301,"http://google.com/")
         
     })(req, res, next)
 })
