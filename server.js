@@ -40,11 +40,16 @@ app.use(session({
     saveUninitialized:false
 }))
 app.use('/', function (req, res, next) {
-  res.setHeader("Access-Control-Allow-Origin","https://glacier-339401.web.app")
+
+    const allowedOrigins = ['https://glacier-339401.web.app', 'http://localhost:3000'];
+    const origin = req.headers.origin;
+    if (allowedOrigins.includes(origin)) {
+        res.setHeader('Access-Control-Allow-Origin', origin);
+    }
     res.setHeader("Access-Control-Allow-Credentials", "false");
     res.setHeader("Access-Control-Max-Age", "1800");
     res.setHeader("Access-Control-Allow-Headers", "content-type");
-    res.setHeader( "Access-Control-Allow-Methods", ", POST, GET" )
+    res.setHeader( "Access-Control-Allow-Methods", "POST, GET" )
   next();
 })
 /* this set of code has to be blow this "app.use(flash())"  "app.use(session({})"*/
