@@ -14,7 +14,15 @@ const port=process.env.PORT||5000;
 // in latest body-parser use like below.
 app.use(fileUpload());
 
-app.use()
+app.use('/', function (req, res, next) {
+  const allowedOrigins = ['https://glacier-339401.web.app', 'http://localhost:3000'];
+  const origin = req.headers.origin;
+  if (allowedOrigins.includes(origin)) {
+      res.setHeader('Access-Control-Allow-Origin', origin);
+  }
+  res.setHeader( "Access-Control-Allow-Methods", "PUT, POST, GET" )
+  next();
+})
 /*
 const mongoConnection=require('mongoose')
 const connection=mongoConnection.connection;
@@ -39,22 +47,11 @@ app.use(session({
     resave:false,
     saveUninitialized:false
 }))
-app.use('/', function (req, res, next) {
 
-    const allowedOrigins = ['https://glacier-339401.web.app', 'http://localhost:3000'];
-    const origin = req.headers.origin;
-    if (allowedOrigins.includes(origin)) {
-        res.setHeader('Access-Control-Allow-Origin', origin);
-    }
-    res.setHeader("Access-Control-Allow-Credentials", "false");
-    res.setHeader("Access-Control-Max-Age", "1800");
-    res.setHeader("Access-Control-Allow-Headers", "content-type");
-    res.setHeader( "Access-Control-Allow-Methods", "POST, GET" )
-  next();
-})
 /* this set of code has to be blow this "app.use(flash())"  "app.use(session({})"*/
 app.use(passportContol.initialize());
 app.use(passportContol.session());
+
 
 app.use("/",router1);
 app.use("/",router2);
