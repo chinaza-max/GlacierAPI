@@ -7,7 +7,7 @@ const bcrypt=require('bcrypt');
 const app=express();
 
 //const methodOverride=require("method-override")
-//app.use(methodOverride('_method'))
+
 
 
 router.post('/login', (req, res, next)=>{
