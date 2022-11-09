@@ -15,7 +15,7 @@ const port=process.env.PORT||5000;
 app.use(fileUpload());
 
 app.use('/', function (req, res, next) {
-  const allowedOrigins = ['https://glacier-339401.web.app', 'http://localhost:3000'];
+  const allowedOrigins = ['glacier-unn.netlify.app', 'http://localhost:3000'];
   const origin = req.headers.origin;
   if (allowedOrigins.includes(origin)) {
       res.setHeader('Access-Control-Allow-Origin', origin);
@@ -58,6 +58,13 @@ app.use("/",router2);
 app.use("/",router3);
 app.use("/",router4);
 
+
+app.get('*', (req, res) => {
+
+  res.redirect(301,`glacier-unn.netlify.app`)
+
+});
+/*
 if(process.env.NOde_ENV==="production"){
 
   //app.use(express.static(path.join(__dirname, '../public')));
@@ -68,6 +75,8 @@ if(process.env.NOde_ENV==="production"){
     res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'))
   });
 }
+
+*/
 app.listen(port ,()=>console.log(`server started.... ${port}`))
 //chinaza100*
 /*
