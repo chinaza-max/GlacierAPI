@@ -4,7 +4,6 @@ const router=express.Router();
 const sendMail=require("../email")
 const User=require("../mongodb/schema/userSchema")
 const bcrypt=require('bcrypt');
-const app=express();
 
 //const methodOverride=require("method-override")
 

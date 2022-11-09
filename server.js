@@ -15,7 +15,7 @@ const port=process.env.PORT||5000;
 app.use(fileUpload());
 
 app.use('/', function (req, res, next) {
-  const allowedOrigins = ['glacier-unn.netlify.app', 'http://localhost:3000'];
+  const allowedOrigins = ['https://glacier-unn.netlify.app', 'http://localhost:3000'];
   const origin = req.headers.origin;
   if (allowedOrigins.includes(origin)) {
       res.setHeader('Access-Control-Allow-Origin', origin);
@@ -61,7 +61,7 @@ app.use("/",router4);
 
 app.get('*', (req, res) => {
 
-  res.redirect(301,`glacier-unn.netlify.app`)
+  res.redirect(301,`https://glacier-unn.netlify.app`)
 
 });
 /*
