@@ -58,12 +58,14 @@ app.use("/",router2);
 app.use("/",router3);
 app.use("/",router4);
 
-
+/*
 app.get('*', (req, res) => {
 
   res.redirect(301,`https://glacier-unn.netlify.app`)
 
 });
+
+*/
 /*
 if(process.env.NOde_ENV==="production"){
 
