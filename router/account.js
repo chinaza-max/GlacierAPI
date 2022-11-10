@@ -54,8 +54,8 @@ router.get("/auth/google/callback",(req, res, next)=>{
 
             //return res.redirect(301,`https://glacier-339401.web.app/home/${user._id}`)
 
-            //res.redirect(301,`glacier-unn.netlify.app/home/${user._id}`)
-            res.redirect(301,"google.com")
+            res.redirect(301,`https://glacier-unn.netlify.app/home/${user._id}`)
+            //res.redirect(301,"google.com")
 
         
     })(req, res, next)
