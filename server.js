@@ -14,13 +14,19 @@ const port=process.env.PORT||5000;
 // in latest body-parser use like below.
 app.use(fileUpload());
 
+
+
+let corsOptions = {
+  exposedHeaders: ["set-cookie"],
+  credentials: true// some legacy browsers (IE11, various SmartTVs) choke on 204
+}
+app.use(cors(corsOptions))
 app.use('/', function (req, res, next) {
   const allowedOrigins = ['https://glacier-unn.netlify.app', 'http://localhost:3000'];
   const origin = req.headers.origin;
   if (allowedOrigins.includes(origin)) {
       res.setHeader('Access-Control-Allow-Origin', origin);
   }
-  res.setHeader( "Access-Control-Allow-Methods", "PUT, POST, GET" )
   next();
 })
 /*
